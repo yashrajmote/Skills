@@ -106,6 +106,87 @@ Put the full description text, including newlines between sections, inside doubl
 
 ---
 
+## Description quality rules (mandatory)
+
+The generated Jira CSV must have strong, useful descriptions. Do not treat the Description column as filler. Each Description should help a product manager, engineer, designer, or QA person understand the purpose, implementation direction, and done criteria without needing to ask basic follow-up questions.
+
+### 1. Make descriptions more complete and actionable
+
+Every Description should explain:
+
+- Why the work exists.
+- What the work includes.
+- What is explicitly out of scope when boundaries are important.
+- What technical layer or component is affected.
+- What must be true for the work to be considered done.
+- What dependencies, risks, assumptions, or open questions exist.
+
+Avoid shallow descriptions such as:
+
+- Build the login feature.
+- Create the dashboard.
+- Add backend support.
+- Implement the API.
+- Write tests.
+
+Prefer descriptions that mention the expected behavior, affected screens/components, API or data requirements, validation rules, edge cases, and acceptance criteria.
+
+### 2. Epic descriptions
+
+Epic descriptions should describe the full product or system area, not just repeat the Epic title. Include:
+
+- The business or product reason this Epic exists.
+- The main capabilities included under the Epic.
+- The boundaries of ownership so work does not overlap with other Epics.
+- Major technical systems involved.
+- Key risks, dependencies, or unknowns.
+- How success will be recognized at the Epic level.
+
+### 3. Story descriptions
+
+Story descriptions should be detailed enough that an engineer can understand the expected behavior and implementation direction. Include:
+
+- User or system goal.
+- Trigger or entry point, such as screen, user action, API call, scheduled job, webhook, or admin action.
+- Expected behavior and important states.
+- API, database, integration, permission, or UI implications where relevant.
+- Acceptance criteria that are testable.
+- Dependencies on other Stories, Epics, designs, infrastructure, or external services.
+
+### 4. Sub-task descriptions
+
+Sub-task descriptions should be technically concrete. Include:
+
+- The specific implementation action.
+- The expected file, component, endpoint, service, model, migration, config, test, or integration area when known.
+- The exact done condition.
+- Any relevant notes about dependencies or assumptions.
+
+A Sub-task Description should not be a single vague sentence unless the task is truly trivial.
+
+### 5. Avoid generic filler
+
+Do not use generic filler phrases unless they are paired with concrete details. Avoid repeating the same Description structure with only the title changed. Each row should have a Description that is specific to that row's actual work.
+
+Bad:
+
+- Objective: Implement this feature.
+- Success criteria: Feature works as expected.
+- Notes: N/A.
+
+Good:
+
+- Objective: Implement email/password login so registered users can securely start a session.
+- Implementation details: Add form validation for required email, valid email format, password presence, disabled submit state, loading state, invalid credentials error, and successful token storage.
+- Success criteria: User cannot submit invalid input; invalid credentials show a clear error; successful login stores the token and navigates to the authenticated home screen.
+- Notes: Depends on the backend login endpoint and agreed token response shape.
+
+### 6. Description review
+
+Before exporting the CSV, review every Description and improve any row that is too vague, too short, duplicated from another row, missing technical context, missing acceptance criteria, or unclear about ownership.
+
+---
+
 ## Backlog quality rules (mandatory)
 
 Apply these rules before generating the final CSV.
