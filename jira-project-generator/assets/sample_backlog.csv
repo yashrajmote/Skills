@@ -1,0 +1,16 @@
+Summary,Issue type,Work item ID,Parent,Status,Description
+Authentication & Onboarding,Epic,100,,To Do,"Objective - Establish secure access for new and returning users.
+Context - The project needs a clear entry path before protected features are usable.
+Scope - Includes signup, login, session persistence, and protected route access.
+Success criteria - Users can create accounts, sign in, and access protected screens.
+Risks and dependencies - Depends on backend auth API and token storage decisions.
+Other information - Sample row for duplicate checker validation."
+User can sign in with email and password,Story,1000,100,To Do,"Objective - Implement email/password login for registered users.
+Context - Login is the primary entry point for authenticated product use.
+Scope - Includes form validation, API call, token handling, and error display.
+Success criteria - Valid credentials create a session; invalid credentials show a clear error.
+Risks and dependencies - Depends on POST /api/auth/login contract.
+Other information - Sample Story row."
+Create login form validation for email and password fields,Sub-task,10000,1000,To Do,"Objective - Add client-side validation to the login form.
+Success criteria - Missing email, invalid email, and missing password block submission with inline errors.
+Notes - Keep validation messages consistent with shared form patterns."

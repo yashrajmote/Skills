@@ -1,0 +1,5 @@
+interface:
+  display_name: "Jira Project Generator"
+  short_description: "Generate Jira backlogs and CSV imports."
+  brand_color: "#2563EB"
+  default_prompt: "Use $jira-project-generator to generate a Jira Cloud CSV backlog and setup notes from project documentation."
