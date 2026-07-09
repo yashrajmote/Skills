@@ -23,6 +23,25 @@ Generate a small-team-friendly Jira backlog using the hierarchy:
 
 Export the third level as `Sub-task`, never `Task`.
 
+## File Inputs
+
+Accept one or more user-provided input files as the source material for the backlog. Input files may be project plans, PRDs, requirements docs, meeting notes, UI notes, architecture docs, repo summaries, or implementation notes.
+
+When file paths are provided:
+
+- Read every input file before generating the backlog.
+- Treat the first input file as the primary project plan unless the user specifies another primary source.
+- Merge all input files into one non-overlapping backlog.
+- Save the Jira CSV to the requested output path.
+- Save setup notes to the requested notes path when one is provided.
+
+If output paths are not specified, save the files next to the first input file:
+
+- `Jira_Backlog.csv`
+- `Jira_Setup_Notes.md`
+
+The helper script `scripts/prepare_jira_generation.py` can collect input files and output paths, then print a ready-to-run `$jira-project-generator` request.
+
 ## Required References
 
 Read the relevant references before producing the final backlog:
@@ -42,3 +61,5 @@ Produce two outputs:
 Default all statuses to `To Do` for new projects unless implementation evidence proves work is `Done` or explicitly `In Progress`. Designs, requirements, and architecture plans count as planned scope, not implementation progress.
 
 Before finalizing, review the CSV for technical usefulness, non-overlap, specific ownership, valid hierarchy, meaningful descriptions, and small-team execution practicality. When a CSV exists, optionally run `scripts/duplicate_backlog_checker.py` to catch duplicate IDs, invalid parents, invalid hierarchy, duplicate summaries, and near-duplicate summaries.
+
+After writing the CSV, run `scripts/duplicate_backlog_checker.py` when available and fix any hard validation errors before reporting the output file to the user.

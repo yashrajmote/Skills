@@ -17,12 +17,34 @@ jira-project-generator/
 |   +-- epic-boundaries.md
 |   +-- story-writing.md
 +-- scripts/
+|   +-- prepare_jira_generation.py
 |   +-- duplicate_backlog_checker.py
 +-- assets/
     +-- sample_backlog.csv
 ```
 
-The skill is mostly instruction-based. The Python script is optional and only supports CSV validation, duplicate detection, and near-duplicate summary checks.
+The skill is mostly instruction-based. The helper scripts collect file-based generation inputs and validate generated CSVs; the AI skill performs the actual document analysis and backlog generation.
+
+## Generate From Input Files
+
+Use the helper to turn one or more project files into a ready-to-run skill request:
+
+```bash
+python3 scripts/prepare_jira_generation.py /path/to/project-plan.md /path/to/architecture.md
+```
+
+For an input-style flow, run:
+
+```bash
+python3 scripts/prepare_jira_generation.py --interactive
+```
+
+The helper will ask for input files and optional output paths, then print a request that tells `$jira-project-generator` where to save:
+
+- `Jira_Backlog.csv`
+- `Jira_Setup_Notes.md`
+
+Paste the printed request into Codex or ChatGPT with this skill enabled. The AI skill performs the actual document analysis and CSV generation.
 
 ## Duplicate Checker
 
